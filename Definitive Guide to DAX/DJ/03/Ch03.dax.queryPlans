@@ -1,9 +1,0 @@
-{
-  "FileFormatVersion": 3,
-  "PhysicalQueryPlanRows": [],
-  "LogicalQueryPlanRows": [],
-  "ActivityID": "00EA1165-E692-4E66-A753-33DA89C46926",
-  "CommandText": "EVALUATE\nFILTER(\n\tSales,\n\tRELATED('Product'[Color]) = \"Red\"\n)",
-  "Parameters": null,
-  "StartDatetime": "2023-09-07T15:00:30.29+03:00"
-}
