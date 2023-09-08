@@ -1,0 +1,18 @@
+﻿//EVALUATE
+//FILTER(
+//	'Product',
+//	'Product'[Unit Price] > 3000
+//)
+//ORDER BY
+//	'Product'[Color],
+//	'Product'[Brand],
+//	'Product'[Class]
+	
+//EVALUATE
+//DISTINCT('Product'[Brand])
+
+EVALUATE
+FILTER(
+	Sales,
+	RELATED('Product'[Color]) = "Red"
+)
