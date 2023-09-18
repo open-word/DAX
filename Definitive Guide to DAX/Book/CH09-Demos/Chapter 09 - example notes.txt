@@ -1,0 +1,2 @@
+The Calculation Groups feature was in preview when the book was written.
+Please refer to articles and demos we will make available at https://www.sqlbi.com/calculation-groups/ once the feature will be generally available.
