@@ -1,0 +1,8 @@
+﻿EVALUATE
+CALCULATETABLE (
+    ROW (
+        "Sales", [Sales Amount],
+        "Cost", [Total Cost]
+    ),
+    'Product'[Color] = "Red"
+)

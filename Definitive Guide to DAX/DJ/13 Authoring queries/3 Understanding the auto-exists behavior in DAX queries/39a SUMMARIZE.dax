@@ -1,0 +1,6 @@
+﻿EVALUATE
+SUMMARIZE (
+    Sales,
+    'Product'[Category],
+    'Date'[Calendar Year]
+)

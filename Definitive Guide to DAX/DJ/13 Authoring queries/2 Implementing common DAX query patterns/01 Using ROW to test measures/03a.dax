@@ -1,0 +1,4 @@
+﻿EVALUATE
+ROW (
+    "Result", [Sales Amount]
+)

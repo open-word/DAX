@@ -1,0 +1,10 @@
+﻿EVALUATE
+ADDMISSINGITEMS (
+    'Date'[Calendar Year],
+    SUMMARIZECOLUMNS (
+        'Date'[Calendar Year],
+        "Amt", [Sales Amount]
+    ),
+    'Date'[Calendar Year]
+)
+ORDER BY 'Date'[Calendar Year]

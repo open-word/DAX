@@ -1,0 +1,46 @@
+﻿EVALUATE
+VAR NumOfTopProducts = 10
+VAR ProdsWithSales =
+    ADDCOLUMNS (
+        VALUES ( 'Product'[Product Name] ),
+        "Product Sales", [Sales Amount]
+    )
+VAR TopNProducts =
+    TOPN (
+        NumOfTopProducts,
+        ProdsWithSales,
+        [Product Sales]
+    )
+VAR RemainingProducts =
+    EXCEPT (
+        ProdsWithSales,
+        TopNProducts
+    )
+VAR RankedTopProducts =
+    ADDCOLUMNS (
+        TopNProducts,
+        "SortColumn",
+            RANKX (
+                TopNProducts,
+                [Product Sales]
+            )
+    )
+VAR OtherRow =
+    ROW (
+        "Product Name", "Others",
+        "Product Sales",
+            SUMX (
+                RemainingProducts,
+                [Product Sales]
+            ),
+        "SortColumn",
+            NumOfTopProducts + 1
+    )
+VAR Result =
+    UNION (
+        RankedTopProducts,
+        OtherRow
+    )
+RETURN
+    Result
+ORDER BY [SortColumn]

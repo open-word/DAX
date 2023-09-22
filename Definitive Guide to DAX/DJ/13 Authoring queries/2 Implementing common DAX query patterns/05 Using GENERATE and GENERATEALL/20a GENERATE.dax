@@ -1,0 +1,27 @@
+﻿EVALUATE
+GENERATE (
+    VALUES ( 'Date'[Calendar Year] ),
+    CALCULATETABLE (
+        VAR ProductsSold =
+            SUMMARIZE (
+                Sales,
+                'Product'[Product Name]
+            )
+        VAR ProductsSales =
+            ADDCOLUMNS (
+                ProductsSold,
+                "Product Sales", [Sales Amount]
+            )
+        VAR Top3Products =
+            TOPN (
+                3,
+                ProductsSales,
+                [Product Sales]
+            )
+        RETURN
+            Top3Products
+    )
+)
+ORDER BY
+    'Date'[Calendar Year],
+    [Product Sales] DESC

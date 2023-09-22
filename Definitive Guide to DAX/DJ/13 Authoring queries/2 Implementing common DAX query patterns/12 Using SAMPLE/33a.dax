@@ -1,0 +1,10 @@
+﻿EVALUATE
+SAMPLE (
+    10,
+    ADDCOLUMNS (
+        VALUES ( 'Product'[Product Name] ),
+        "Sales", [Sales Amount]
+    ),
+    'Product'[Product Name]
+)
+ORDER BY 'Product'[Product Name]

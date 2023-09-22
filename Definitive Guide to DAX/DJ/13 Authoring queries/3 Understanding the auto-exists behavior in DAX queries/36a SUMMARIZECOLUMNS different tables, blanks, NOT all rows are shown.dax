@@ -1,0 +1,16 @@
+﻿DEFINE
+    MEASURE Sales[Sales Amount] =
+        SUMX (
+            Sales,
+            Sales[Quantity] * Sales[Net Price]
+        )
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Date'[Calendar Year],
+    "Sales", [Sales Amount]
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]

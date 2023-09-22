@@ -1,0 +1,19 @@
+﻿EVALUATE
+{
+	SUMX (
+        VALUES ( 'Product'[Category] ),
+        CALCULATE (
+            SUMX (
+                SUMMARIZECOLUMNS( (
+                    VALUES ( 'Product'[Subcategory] ),
+                    "SubcategoryTotal", [Sales Amount]
+                ),
+                [SubcategoryTotal]
+            )
+        )
+    )
+}
+
+-- SUMMARIZECOLUMNS cannot be called in a context where 
+-- there has been a context transition.
+-- In this case, by CALCULATE.

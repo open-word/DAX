@@ -1,0 +1,12 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    ROLLUPADDISSUBTOTAL (
+        'Date'[Calendar Year],
+        "YearTotal"
+    ),
+    "Sales Amount", [Sales Amount]
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]

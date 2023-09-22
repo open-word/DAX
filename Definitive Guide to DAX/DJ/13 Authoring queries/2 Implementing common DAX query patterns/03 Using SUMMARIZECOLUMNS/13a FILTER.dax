@@ -1,0 +1,18 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    ROLLUPADDISSUBTOTAL (
+        ROLLUPGROUP (
+            'Product'[Category],
+            'Date'[Calendar Year]
+        ),
+        "Category Year Total"
+    ),
+    FILTER (
+        ALL ( Customer[Education] ),
+        Customer[Education] = "High School"
+    ),
+    "Sales Amount", [Sales Amount]
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]
