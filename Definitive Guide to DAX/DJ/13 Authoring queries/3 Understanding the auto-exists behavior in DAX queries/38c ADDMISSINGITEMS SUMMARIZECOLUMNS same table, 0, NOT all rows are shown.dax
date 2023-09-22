@@ -1,0 +1,23 @@
+﻿DEFINE
+    MEASURE Sales[Sales Amount] =
+        SUMX (
+            Sales,
+            Sales[Quantity] * Sales[Net Price]
+        )
+
+EVALUATE
+ADDMISSINGITEMS (
+    'Product'[Category],
+    'Product'[Subcategory],
+    SUMMARIZECOLUMNS (
+        'Product'[Category],
+        'Product'[Subcategory],
+        "Sales",
+            [Sales Amount] + 0
+    ),
+    'Product'[Category],
+    'Product'[Subcategory]
+)
+ORDER BY
+    'Product'[Category],
+    'Product'[Subcategory]
