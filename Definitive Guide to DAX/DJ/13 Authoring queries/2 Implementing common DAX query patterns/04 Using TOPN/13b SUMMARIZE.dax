@@ -1,0 +1,16 @@
+﻿EVALUATE
+VAR ProductsBrands =
+    SUMMARIZE (
+        Sales,
+        'Product'[Product Name],
+        'Product'[Brand]
+    )
+VAR Result =
+    TOPN (
+        3,
+        ProductsBrands,
+        [Sales Amount]
+    )
+RETURN
+    Result
+ORDER BY 'Product'[Product Name]

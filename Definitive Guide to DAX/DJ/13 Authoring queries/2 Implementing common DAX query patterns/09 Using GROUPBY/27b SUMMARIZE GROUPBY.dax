@@ -1,0 +1,17 @@
+﻿EVALUATE
+ADDCOLUMNS (
+    SUMMARIZE (
+        Sales,
+        'Date'[Calendar Year],
+        'Date'[Month],
+        'Date'[Month Number]
+    ),
+    "Amt",
+        AVERAGEX (
+            RELATEDTABLE ( Sales ),
+            Sales[Quantity] * Sales[Net Price]
+        )
+)
+ORDER BY
+    'Date'[Calendar Year],
+    'Date'[Month Number]

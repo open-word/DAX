@@ -1,0 +1,19 @@
+﻿EVALUATE
+VAR SalesByBrand =
+    ADDCOLUMNS (
+        VALUES ( 'Product'[Brand] ),
+        "Product Sales",
+            MROUND (
+                [Sales Amount],
+                1000000
+            )
+    )
+VAR Result =
+    TOPN (
+        4,
+        SalesByBrand,
+        [Product Sales]
+    )
+RETURN
+    Result
+ORDER BY [Product Sales] DESC

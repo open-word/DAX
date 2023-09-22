@@ -1,0 +1,15 @@
+﻿EVALUATE
+{
+    SUMX (
+        VALUES ( 'Product'[Category] ),
+        CALCULATE (
+            SUMX (
+                ADDCOLUMNS (
+                    VALUES ( 'Product'[Subcategory] ),
+                    "SubcategoryTotal", [Sales Amount]
+                ),
+                [SubcategoryTotal]
+            )
+        )
+    )
+}

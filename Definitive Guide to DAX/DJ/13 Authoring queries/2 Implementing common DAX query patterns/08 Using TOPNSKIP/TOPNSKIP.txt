@@ -1,0 +1,1 @@
+http://www.sqlbi.com/articles/querying-raw-data-to-tabular/.

@@ -1,0 +1,5 @@
+﻿EVALUATE
+NATURALLEFTOUTERJOIN (
+    'Product',
+    Sales
+)

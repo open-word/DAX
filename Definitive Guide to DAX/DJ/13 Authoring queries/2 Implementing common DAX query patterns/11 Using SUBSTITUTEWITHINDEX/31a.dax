@@ -1,0 +1,37 @@
+﻿DEFINE
+    VAR SalesYearCategory =
+        SUMMARIZECOLUMNS (
+            'Product'[Category],
+            'Date'[Calendar Year],
+            "Sales_Amount", [Sales Amount]
+        )
+    VAR MatrixRows =
+        SUMMARIZE (
+            SalesYearCategory,
+            'Product'[Category]
+        )
+    VAR MatrixColumns =
+        SUMMARIZE (
+            SalesYearCategory,
+            'Date'[Calendar Year]
+        )
+    VAR SalesYearCategoryIndexed =
+        SUBSTITUTEWITHINDEX (
+            SalesYearCategory,
+            "ColumnIndex", MatrixColumns,
+            'Date'[Calendar Year], ASC
+        ) -- First result: matrix column headers
+
+EVALUATE
+MatrixColumns
+ORDER BY 'Date'[Calendar Year]
+-- Second result: matrix rows and content
+
+EVALUATE
+NATURALLEFTOUTERJOIN (
+    MatrixRows,
+    SalesYearCategoryIndexed
+)
+ORDER BY
+    'Product'[Category],
+    [ColumnIndex]

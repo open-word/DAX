@@ -1,0 +1,29 @@
+﻿EVALUATE
+VAR AvgCustomerSales =
+    AVERAGEX (
+        Customer,
+        [Sales Amount]
+    )
+VAR ClassifiedCustomers =
+    ADDCOLUMNS (
+        VALUES ( Customer[Customer Code] ),
+        "Customer Category",
+            IF (
+                [Sales Amount] >= AvgCustomerSales,
+                "Above Average",
+                "Below Average"
+            )
+    )
+VAR GroupedResult =
+    GROUPBY (
+        ClassifiedCustomers,
+        [Customer Category],
+        "Number of Customers",
+            SUMX (
+                CURRENTGROUP (),
+                1
+            )
+    )
+RETURN
+    GroupedResult
+ORDER BY [Customer Category]

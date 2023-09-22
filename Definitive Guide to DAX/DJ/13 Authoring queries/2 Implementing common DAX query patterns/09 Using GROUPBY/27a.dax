@@ -1,0 +1,15 @@
+﻿EVALUATE
+GROUPBY (
+    Sales,
+    'Date'[Calendar Year],
+    'Date'[Month],
+    'Date'[Month Number],
+    "Amt",
+        AVERAGEX (
+            CURRENTGROUP (),
+            Sales[Quantity] * sales[Net Price]
+        )
+)
+ORDER BY
+    'Date'[Calendar Year],
+    'Date'[Month Number]

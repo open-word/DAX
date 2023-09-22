@@ -1,0 +1,25 @@
+﻿EVALUATE
+VAR ProductsBrands =
+    SUMMARIZE (
+        Sales,
+        'Product'[Product Name],
+        'Product'[Brand]
+    )
+VAR ProductsBrandsSales =
+    ADDCOLUMNS (
+        ProductsBrands,
+        "Product Sales Amount", [Sales Amount]
+    )
+VAR Result =
+    TOPN (
+        3,
+        ProductsBrandsSales,
+        [Product Sales Amount]
+    )
+RETURN
+    Result
+--ORDER BY 'Product'[Product Name]
+--ORDER BY 'Product'[Brand]
+--ORDER BY [Product Name]
+--ORDER BY [Brand]
+ORDER BY [Product Sales Amount]

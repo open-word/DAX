@@ -1,0 +1,14 @@
+﻿EVALUATE
+SUMMARIZE (
+    Sales,
+    ROLLUP (
+        'Product'[Category],
+        'Date'[Calendar Year]
+    ),
+    "Sales Amount", [Sales Amount],
+    "SubtotalCategory", ISSUBTOTAL ( 'Product'[Category] ),
+    "SubtotalYear", ISSUBTOTAL ( 'Date'[Calendar Year] )
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]

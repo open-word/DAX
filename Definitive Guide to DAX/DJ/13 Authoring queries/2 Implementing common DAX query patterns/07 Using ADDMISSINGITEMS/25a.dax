@@ -1,0 +1,6 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    'Date'[Calendar Year],
+    "Amt", [Sales Amount]
+)
+ORDER BY 'Date'[Calendar Year]

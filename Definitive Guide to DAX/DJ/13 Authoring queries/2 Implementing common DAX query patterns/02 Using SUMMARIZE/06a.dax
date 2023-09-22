@@ -1,0 +1,12 @@
+﻿EVALUATE
+SUMMARIZE (
+    Sales,
+    ROLLUP (
+        'Product'[Category],
+        'Date'[Calendar Year]
+    ),
+    "Sales Amount", [Sales Amount]
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]

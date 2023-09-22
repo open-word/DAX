@@ -1,0 +1,26 @@
+﻿EVALUATE
+TOPN (
+    501,
+    FILTER (
+        KEEPFILTERS (
+            SUMMARIZECOLUMNS (
+                'Product'[Category],
+                'Product'[Color],
+                'Product'[Product Name],
+                "Sales_Amount", 'Sales'[Sales Amount]
+            )
+        ),
+        ISONORAFTER (
+        'Product'[Category], "Audio", ASC,
+        'Product'[Color], "Yellow", ASC,
+        'Product'[Product Name], "WWI Stereo Bluetooth Headphones New Generation M370 Yellow", ASC
+        )
+    ),
+    'Product'[Category], 1,
+    'Product'[Color], 1,
+    'Product'[Product Name], 1
+)
+ORDER BY
+    'Product'[Category],
+    'Product'[Color],
+    'Product'[Product Name]

@@ -1,0 +1,6 @@
+﻿EVALUATE
+TOPN (
+    3,
+    'Product',
+    [Sales Amount]
+)
