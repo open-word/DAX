@@ -1,0 +1,22 @@
+﻿DEFINE
+    VAR MinimumAmount = 2000000
+    VAR MaximumAmount = 8000000
+
+EVALUATE
+VAR CategoriesSales =
+    ADDCOLUMNS (
+        SUMMARIZE (
+            sales,
+            'Product'[Category]
+        ),
+        "Category Amount", [Sales Amount]
+    )
+RETURN
+    FILTER (
+        CategoriesSales,
+        AND (
+            [Category Amount] >= MinimumAmount,
+            [Category Amount] <= MaximumAmount
+        )
+    )
+ORDER BY [Category Amount]

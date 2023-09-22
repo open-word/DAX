@@ -1,0 +1,12 @@
+﻿DEFINE
+    MEASURE Sales[LargeSales] =
+        CALCULATE (
+            [Sales Amount],
+            Sales[Net Price] >= 200
+        )
+
+EVALUATE
+ADDCOLUMNS (
+    VALUES ( 'Product'[Category] ),
+    "Large Sales", [LargeSales]
+)
