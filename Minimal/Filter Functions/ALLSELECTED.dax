@@ -1,0 +1,6 @@
+﻿EVALUATE
+{
+    [Sales Amount], 
+    [Sales Amount ALL SELECTED], 
+    [Sales Amount ALL]
+}
