@@ -1,0 +1,9 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Date'[Calendar Year],
+    "Sales", [Sales Amount 0]
+)
+ORDER BY
+    'Product'[Category],
+    'Date'[Calendar Year]
