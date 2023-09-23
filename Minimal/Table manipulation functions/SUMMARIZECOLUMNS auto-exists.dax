@@ -1,0 +1,31 @@
+﻿-- Same table, blanks are not returned
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Product'[Subcategory],
+    "Sales Amount", [Sales Amount]
+)
+
+-- Same table, 0 are returned
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Product'[Subcategory],
+    "Sales Amount", [Sales Amount 0]
+)
+
+-- Different table, blanks are not returned
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    Customer[CustomerType],
+    "Sales Amount", [Sales Amount]
+)
+
+-- Different table, 0 are returned
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    Customer[CustomerType],
+    "Sales Amount", [Sales Amount 0]
+)
