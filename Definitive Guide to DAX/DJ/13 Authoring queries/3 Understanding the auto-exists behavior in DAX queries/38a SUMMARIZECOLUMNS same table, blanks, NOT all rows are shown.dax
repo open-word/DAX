@@ -9,8 +9,7 @@ EVALUATE
 SUMMARIZECOLUMNS (
     'Product'[Category],
     'Product'[Subcategory],
-    "Sales",
-        [Sales Amount] + 0
+    "Sales", [Sales Amount]
 )
 ORDER BY
     'Product'[Category],
