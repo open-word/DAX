@@ -1,0 +1,10 @@
+﻿-- Same table, blanks are not returned
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Customer'[CustomerType],
+    'Customer'[CustomerKey],
+    "Sales Amount", [Sales Amount]
+)
+ORDER BY
+    'Customer'[CustomerType],
+    'Customer'[CustomerKey]

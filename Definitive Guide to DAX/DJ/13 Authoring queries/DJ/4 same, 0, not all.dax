@@ -1,0 +1,9 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    'Product'[Category],
+    'Product'[Subcategory],
+    "Sales", [Sales Amount 0]
+)
+ORDER BY
+    'Product'[Category],
+    'Product'[Subcategory]
