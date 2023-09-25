@@ -1,10 +1,10 @@
 ﻿-- Different table, blanks are not returned
 EVALUATE
 SUMMARIZECOLUMNS (
-    Customer[CustomerType],
+    Customer[Customer Type],
     'Product'[Category],
     "Sales Amount", [Sales Amount]
 )
 ORDER BY
-    Customer[CustomerType],
+    Customer[Customer Type],
     'Product'[Category]
