@@ -1,0 +1,14 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    TREATAS ( { "DAX", "Python" }, 'Languages'[Language] ),
+    TREATAS ( { 2018 }, 'Years'[Year] ),
+    "Result", [# Projects All Time]
+)
+
+
+EVALUATE
+CALCULATETABLE (
+    { [# Projects All Time] },
+    TREATAS ( { "DAX", "Python" }, 'Projects'[Language] ),
+    TREATAS ( { 2018 }, 'Projects'[Year] )
+)
