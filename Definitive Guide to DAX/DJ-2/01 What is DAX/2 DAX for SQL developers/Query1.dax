@@ -1,0 +1,9 @@
+﻿EVALUATE
+SUMMARIZECOLUMNS (
+    Customer[Name],
+    FILTER (
+        Customer,
+        Customer[Continent] = "Europe"
+    ),
+    "Sum of Sales", SUM ( Sales[Quantity] )
+)
