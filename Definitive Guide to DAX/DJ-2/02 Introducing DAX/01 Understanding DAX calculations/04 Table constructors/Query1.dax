@@ -1,0 +1,7 @@
+﻿EVALUATE
+{"Red", "White", "Blue"}
+
+EVALUATE
+{
+	("A",1,DATE(2023,1,1),CURRENCY(199.99),true)
+}
