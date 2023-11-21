@@ -1,0 +1,8 @@
+﻿EVALUATE
+FILTER (
+    'Product',
+    'Product'[Unit Price] > 3000
+)
+ORDER BY
+'Product'[Color],
+'Product'[Brand]
