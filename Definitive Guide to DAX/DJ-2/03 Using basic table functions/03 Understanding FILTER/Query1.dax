@@ -1,0 +1,29 @@
+﻿// Approach 1
+
+EVALUATE
+FILTER (
+    FILTER (
+        'Product',
+        'Product'[Brand] = "Fabrikam"
+    ),
+    'Product'[Unit Price] > 'Product'[Unit Cost] * 3
+)
+// Approach 2
+EVALUATE
+FILTER (
+    'Product',
+    AND (
+        'Product'[Brand] = "Fabrikam",
+        'Product'[Unit Price] > 'Product'[Unit Cost] * 3
+    )
+)
+// Approach 3
+
+EVALUATE
+FILTER (
+    FILTER (
+        'Product',
+        'Product'[Unit Price] > 'Product'[Unit Cost] * 3
+    ),
+    'Product'[Brand] = "Fabrikam"
+)
