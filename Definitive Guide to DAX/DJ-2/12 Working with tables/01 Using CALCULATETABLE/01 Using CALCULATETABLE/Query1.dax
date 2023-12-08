@@ -1,0 +1,44 @@
+﻿EVALUATE
+CALCULATETABLE (
+    'Product',					-- 2. Evaluates the expression
+    'Product'[Color] = "Red" 	-- 1. Changes the filter context
+)
+
+EVALUATE
+FILTER (
+    'Product',					-- 1. Iterates the result of the first argument
+    'Product'[Color] = "Red" 	-- 2. Retrieves the rows that satisfy the condition
+)
+
+EVALUATE
+CALCULATETABLE (
+    ADDCOLUMNS (
+        VALUES ( 'Product'[Color] ),
+        "Num of Products", COUNTROWS ( 'Product' )
+    ),
+'Product'[Color] = "Red"
+)
+
+EVALUATE
+FILTER (
+    ADDCOLUMNS (
+        VALUES ( 'Product'[Color] ),
+        "Num of Products", COUNTROWS ( 'Product' )
+    ),
+    'Product'[Color] = "Red"
+)
+
+EVALUATE
+ADDCOLUMNS (
+    FILTER (
+        VALUES ( 'Product'[Color] ),
+        'Product'[Color] = "Red"
+    ),
+    "Num of Products", CALCULATE ( COUNTROWS ( 'Product' ) )
+)
+
+EVALUATE
+FILTER (
+    Customer,
+    [Sales Amount] > 10000
+)
